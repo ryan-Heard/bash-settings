@@ -1,0 +1,6 @@
+alias gp="git pull"
+alias gaa="git add ."
+alias gcb="git checkout"
+alias gb="git branch"
+alias gt="git tags"
+alias gct="git tag origin"

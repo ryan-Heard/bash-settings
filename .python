@@ -1,0 +1,12 @@
+# Setting PATH for Python 3.6
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+export PATH
+export PYENV_ROOT="$HOME/.pyenv"
+
+#pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
