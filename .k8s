@@ -7,4 +7,5 @@ alias kcd='kubectl config set-context $(kubectl config current-context) --namesp
 k8s_activate() {
     kubectl config use-context $1
 }
-alias weave-vz=""" kubectl port-forward -n weave "$(kubectl get -n weave pod --selector=weave-scope-component=app -o jsonpath='{.items..metadata.name}')" 4040 """
+alias weave-vz=""" kubectl port-forward 4040 -n weave "$(kubectl get -n weave pod --selector=weave-scope-component=app -o jsonpath='{.items..metadata.name}')" 4040 """
+alias op-run="go run cmd/operator/main.go --kubecfg-file=${HOME}/.kube/config"
