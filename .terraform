@@ -1,0 +1,2 @@
+alias terra="terraform"
+alias tp="terraform plan"

@@ -4,7 +4,10 @@ alias kg='kubectl get'
 alias ke='kubectl exec'
 alias mk=minikube
 alias kcd='kubectl config set-context $(kubectl config current-context) --namespace'
-alias prometheus_gui="""kubectl port-forward -n monitoring "$(kubectl get -n monitoring pod --selector=app=prometheus -o jsonpath='{.items..metadata.name}')" 9090 2>&1 > /dev/null """
+prometheus_gui() {
+    echo "Listening on Port:9090"
+    kubectl port-forward -n monitoring "$(kubectl get -n monitoring pod --selector=app=prometheus -o jsonpath='{.items..metadata.name}')" 9090 2>&1 > /dev/null 
+}
 k8s_activate() {
     kubectl config use-context $1
 }

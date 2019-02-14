@@ -1,6 +1,6 @@
-# Setting PATH for Python 3.6
+# Setting PATH for Python 3.7
 # The original version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+PATH="/usr/local/lib/python3.7/site-packages:${PATH}"
 export PATH
 export PYENV_ROOT="$HOME/.pyenv"
 
