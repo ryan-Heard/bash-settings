@@ -69,3 +69,6 @@ PS2="\[${yellow}\]→ \[${reset}\]";
 export PS2;
 
 alias ls='ls -Fh'
+
+#command suggestions 
+eval $(thefuck --alias)
