@@ -1,2 +1,5 @@
 alias terra="terraform"
 alias tp="terraform plan"
+function dot_svg(){
+    dot $1.dot -Tsvg -o $1.svg
+}

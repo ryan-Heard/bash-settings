@@ -1,0 +1,4 @@
+vault-git-login() {
+  export VAULT_ADDR=${1}
+  vault login -token-only -method=github token="${2})"
+}
