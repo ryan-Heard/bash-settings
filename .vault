@@ -1,4 +1,17 @@
-vault-git-login() {
-  export VAULT_ADDR=${1}
-  vault login -token-only -method=github token="${2})"
+vault-login() {
+  export VAULT_ADDR="$(yq -y ".regions | map(select(.name == \"$1\") .vault)" < ~/babylon/manifests/shipcat.conf | yq '.[0].url' -r)"
+  export VAULT_TOKEN="${BABYLON_GITHUB_PAT}"
+
+  if [[ $VAULT_ADDR = "https://vault.babylontech.co.uk:8200" ]]; then
+    VAULT_TOKEN=${BABYLON_LEGACY_VAULT_TOKEN}
+  else
+    if [[ "$1" == "preprod-us" ]]; then
+      VAULT_TOKEN="$(<~/.vault-token-preprod)"
+      echo "$VAULT_TOKEN" > ~/.vault-token
+    else
+      vault login -method=okta username=ryan.heard
+    fi
+  fi
 }
+
+export BABYLON_LEGACY_VAULT_TOKEN=47afade5-8f38-81f5-3aef-6f605a140698
