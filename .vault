@@ -15,3 +15,5 @@ vault-login() {
 }
 
 export BABYLON_LEGACY_VAULT_TOKEN=47afade5-8f38-81f5-3aef-6f605a140698
+
+alias vl='vault login -method=okta username=ryan.heard'
